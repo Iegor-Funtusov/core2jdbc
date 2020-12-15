@@ -1,26 +1,30 @@
 package ua.com.alevel;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
+
 /**
  * @author Iehor Funtusov, created 11/12/2020 - 8:52 PM
  */
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "EMAIL")
     private String email;
+
+    @Column(name = "USERNAME")
     private String userName;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
